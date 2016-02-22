@@ -1,0 +1,74 @@
+
+<div class="div1">
+      <form action="index.html" method="post">
+      
+        <h1>Sign Up</h1>
+
+        Registered as a family Member?? <input type="checkbox" ng-model="checked">
+        
+        <fieldset>
+         
+          <label for="name">First Name:</label>
+          <input type="text" id="fname" name="first_name">
+
+               <label for="name">Last Name:</label>
+          <input type="text" id="lname" name="last_name">
+          
+          
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="user_email">
+          
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="user_password">
+
+            <label for="password">Confirm Password:</label>
+          <input type="password" id="password" name="user_password">
+          
+            
+               <label for="name">Mobile No / Usrename:</label>
+          <input type="Number" id="lname" name="mobile_number">
+          
+        </fieldset>
+        <fieldset>
+        <div class="check-element animate-show" ng-show="checked">
+            <label> Family group name</label>
+              <input type="text" id="familygroupname" name="familygroupname">
+
+        <label for="group id">Family ID:</label>
+    <input type="text" id="fid" name="family_id">
+
+      <label for="Group name">Family group icon</label>
+      <div id="familyProfile"> </div>
+      <br>
+      
+       Change Icon             <div class="fileUpload btn btn-primary">
+    <span>Upload</span>
+    <input type="file" class="upload" />
+</div>
+    </div>
+
+         <div class="check-element animate-show" ng-hide="checked">
+           <label for="Group name">Family group name</label>
+          <input type="text" id="groupname" name="group_name">
+
+           <label for="Group name">Family group icon</label>
+            <div class="fileUpload btn btn-primary">
+    <span>Upload</span>
+    <input type="file" class="upload" />
+</div>
+          
+         </div>  
+         <br>
+      
+ 
+
+      <div class="row">
+      <div style="width:200px;height:200px;margin:auto;">
+     
+     <a href="#/login" nav-direction="forward"> <button class="btn-primary" > Sign Up </button> </a>
+
+
+      </div>
+      </div>
+      </form>
+</div>
