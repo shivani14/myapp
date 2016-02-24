@@ -130,3 +130,7 @@ a.item {
     opacity: 0;
     filter: alpha(opacity=0);
 }
+.myclass
+{
+	background-color:red;
+}
