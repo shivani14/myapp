@@ -1,14 +1,12 @@
 
-<div class="container-fluid" style="background-image:url('../img/backimg7.jpg');background-size:cover;">
+<div class="container-fluid" style="background-image:url('../img/backimg7.jpg');background-size:cover;overflow:scroll;">
 <br>
 <br>
 
 <div style="width:100%;height:100%;margin:auto;">
 <div class="row">
 
-<div class="col-xs-8 col-md-12 col-lg-12 col-sm-6">
-<div id="rounddiv"></div>
-</div>
+ <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar" style="margin:auto;">
 
 </div>
 
@@ -33,9 +31,12 @@
 <input type="password" class="form-control" name="password" placeholder="Password" style="background-color:#e0e0eb;" ng-model="user.password" required minlength="6">
 
 <div ng-show="myForm.$submitted || myForm.password.$touched" style="margin-top:0px;">
+
+<div ng-show="myForm.Mobileno.$valid">
 						<div ng-show="myForm.password.$error.required"><p class="text-danger" style="font-size:15px;font-weight:bold;"> please enter password</div>
 
 						<div ng-show="myForm.password.$error.minlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"> password length is short.(minlenght=6)
+						</div>
 						</div>
 						
 		</div>

@@ -1,74 +1,187 @@
 
-<div class="div1">
-      <form action="index.html" method="post">
-      
-        <h1>Sign Up</h1>
+<div class="container-fluid" style="background-image:url('../img/backimg7.jpg');background-size:cover;overflow:scroll;">
 
-        Registered as a family Member?? <input type="checkbox" ng-model="checked">
-        
-        <fieldset>
-         
-          <label for="name">First Name:</label>
-          <input type="text" id="fname" name="first_name">
+<div class="row">
 
-               <label for="name">Last Name:</label>
-          <input type="text" id="lname" name="last_name">
-          
-          
-          <label for="mail">Email:</label>
-          <input type="email" id="mail" name="user_email">
-          
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="user_password">
+<div style="width:100%;height:100%;margin:auto;">
+  <h1 class="page-header" style="mar"> Register here</h1>
 
-            <label for="password">Confirm Password:</label>
-          <input type="password" id="password" name="user_password">
-          
-            
-               <label for="name">Mobile No / Usrename:</label>
-          <input type="Number" id="lname" name="mobile_number">
-          
-        </fieldset>
-        <fieldset>
-        <div class="check-element animate-show" ng-show="checked">
-            <label> Family group name</label>
-              <input type="text" id="familygroupname" name="familygroupname">
-
-        <label for="group id">Family ID:</label>
-    <input type="text" id="fid" name="family_id">
-
-      <label for="Group name">Family group icon</label>
-      <div id="familyProfile"> </div>
-      <br>
-      
-       Change Icon             <div class="fileUpload btn btn-primary">
-    <span>Upload</span>
-    <input type="file" class="upload" />
 </div>
-    </div>
 
-         <div class="check-element animate-show" ng-hide="checked">
-           <label for="Group name">Family group name</label>
-          <input type="text" id="groupname" name="group_name">
-
-           <label for="Group name">Family group icon</label>
-            <div class="fileUpload btn btn-primary">
-    <span>Upload</span>
-    <input type="file" class="upload" />
 </div>
-          
-         </div>  
-         <br>
-      
+
+<div style="width:100%;height:100%;margin:auto;">
+<form  name="myForm"  novalidate>
+
+<div class="form-group has-feedback" ng-class="{ 'has-error': myForm.$invalid}" style="margin-top:20px;">
+
+Registered as a family Member?? <input type="checkbox" ng-model="checked">
+
+
+<input type="text" class="form-control" name="firstname" placeholder="First name" style="background-color:#e0e0eb;" ng-model="user.firstname" required  ng-maxlength="20" ng-pattern="/^[a-zA-z]+$/"/>
+	
+<div ng-show="myForm.$submitted || myForm.firstname.$touched" style="margin-top:0px;padding-bottom:20px;padding-top:0px;">
+						<div ng-show="myForm.firstname.$error.required" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;"><p> please enter first name</p></div>
+						<div ng-show="myForm.firstname.$error.pattern" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;"><p> please enter valid first name</p></div>
+								<div ng-show="myForm.Mobileno.$error.maxlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"><p> first name must be less than 20.</p></div>
+												
+												
+		</div>
+
+		
+<input type="text" class="form-control" name="lname" placeholder="last name" style="background-color:#e0e0eb;" ng-model="user.lastname" required maxlength="15" ng-pattern="/^[a-zA-z]+$/"/>
+
+
+	
+<div ng-show="myForm.$submitted || myForm.lname.$touched" style="margin-top:0px;padding-bottom:20px;padding-top:0px;">
+
+<div ng-show="myForm.firstname.$valid">
+						<div ng-show="myForm.lname.$error.required" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;"><p> please enter last name</p></div>
+						<div ng-show="myForm.firstname.$error.pattern" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;"><p> please enter valid last name</p></div>
+						<div ng-show="myForm.Mobileno.$error.maxlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"><p>first name must be less than 15.</p></div>
+
+												
+		</div>
+</div>
+
+<input type="email" class="form-control" name="emailid" placeholder="Email id" style="background-color:#e0e0eb;" ng-model="user.emailid" required maxlength="50" />
+
+
+	
+<div ng-show="myForm.$submitted || myForm.emailid.$touched" style="margin-top:0px;padding-bottom:20px;padding-top:0px;">
+
+<div ng-show="myForm.firstname.$valid && myForm.lname.$valid">
+						<div ng-show="myForm.emailid.$error.required" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;"> please enter emailid</p></div>
+						
+						<div ng-show="myForm.Mobileno.$error.maxlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"><p>email id must be less than 50.</p></div>
+
+							<div ng-show="myForm.emailid.$error.email"><p class="text-danger" style="font-size:15px;font-weight:bold;"> <p>enter valid email id</p></div>
+
+												
+		</div>
+</div>
+
+<input type="password" class="form-control" name="password" placeholder="Enter password" style="background-color:#e0e0eb;" ng-model="user.password" required minlength="6"/>
+
+
+
+<div ng-show="myForm.$submitted || myForm.password.$touched" style="margin-top:0px;">
+
+<div ng-show="myForm.firstname.$valid && myForm.lname.$valid && myForm.emailid.$valid">
+
+						<div ng-show="myForm.password.$error.required"><p class="text-danger" style="font-size:15px;font-weight:bold;"><p> please enter password</p></div>
+
+						<div ng-show="myForm.password.$error.minlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"> <p>password length is short.(minlenght=6)</p>
+						</div>
+
+</div>
+						
+		</div>
+
+
+<input type="password" class="form-control" name="repassword" placeholder="Confirm password" style="background-color:#e0e0eb;" ng-model="user.repassword" required minlength="6">
+
+
+
+<div ng-show="myForm.$submitted || myForm.repassword.$touched || myForm.password.$touched" style="margin-top:0px;">
+
+<div ng-show="myForm.firstname.$valid && myForm.lname.$valid && myForm.emailid.$valid && myForm.password.$valid">
+						<div ng-show="myForm.repassword.$error.required"><p class="text-danger" style="font-size:15px;font-weight:bold;"> please re-enter password</div>
+
+						<div ng-show="myForm.repassword.$error.minlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"> password length is short.(minlenght=6)
+						</div>
+
+						<div ng-show="user.password!=user.repassword"><p class="text-danger" style="font-size:15px;font-weight:bold;"> passwords does not match
+						</div>
+		</div>
+
+</div>
+
+
+<input type="number" class="form-control" name="username" placeholder="mobileno / username" style="background-color:#e0e0eb;" ng-model="user.mobileno" required minlength="10" maxlength="10">
+
+
+<div ng-show="myForm.$submitted || myForm.username.$touched" style="margin-top:0px;padding-bottom:20px;padding-top:0px;">
+
+
+<div ng-show="myForm.firstname.$valid && myForm.lname.$valid && myForm.emailid.$valid && myForm.password.$valid && myForm.repassword.$valid">
+						<div ng-show="myForm.username.$error.required" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;"> please enter mobile no</p></div>
+							<div ng-show="myForm.username.$error.minlength || myForm.Mobileno.$error.maxlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"> enter valid mobile no</p></div>
+												
+		</div>
+		</div>
+
+
+  <!--Profile Pic <p class="fileUpload btn btn-primary">
+    <span>Upload</span>-->
+   
+    
+
+<div class="check-element animate-show" ng-show="checked">
+<input type="text" name="groupname" ng-model="user.gname" placeholder="edit name" required ng-maxlength="25">
+     </input>
+
+
+    <!-- <div ng-show="myForm.groupname.$touched">
+
+     <div ng-show="myForm.firstname.$valid && myForm.lname.$valid && myForm.emailid.$valid && myForm.password.$valid && myForm.repassword.$valid&& myForm.username.$valid">
+     <div ng-show="myForm.groupname.$error.required"><p class="text-danger" style="font-size:15px;font-weight:bold;"> the field is required </p>
+     </div>
+
+     <div ng-show="myForm.groupname.$error.maxlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"> Groupname cant be greater than 25 characters. </p>
+     </div>
+
+     </div>
  
-
-      <div class="row">
-      <div style="width:200px;height:200px;margin:auto;">
-     
-     <a href="#/login" nav-direction="forward"> <button class="btn-primary" > Sign Up </button> </a>
+        </div> -->
 
 
-      </div>
-      </div>
-      </form>
+	 <!-- <input type="text" class="form-control" name="familyid" placeholder="Family id" style="background-color:#e0e0eb;" ng-model="user.familyid" required> -->
+
+
+	  <!--   <div ng-show="myForm.familyid.$touched" style="margin-top:0px;">
+
+<div ng-show="myForm.firstname.$valid && myForm.lname.$valid && myForm.emailid.$valid && myForm.password.$valid && myForm.repassword.$valid && myForm.username.$valid && myForm.groupname.$valid">
+					
+					<div ng-show="myForm.familyid.$error.required" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;"> please enter familyid</p></div>
+					
+												
+		</div>
+
+</div>-->
+
 </div>
+
+ <div class="check-element animate-show" ng-hide="checked" >
+
+ <input type="text" name="gname" ng-model="user.groupname" placeholder="family group name" required>
+     </input> 
+
+
+   <!--  <div ng-show="myForm.gname.$touched">
+
+     <div ng-show="myForm.firstname.$valid && myForm.lname.$valid && myForm.emailid.$valid && myForm.password.$valid && myForm.repassword.$valid&& myForm.username.$valid">
+     <div ng-show="myForm.gname.$error.required"><p class="text-danger" style="font-size:15px;font-weight:bold;"> the field is required </p>
+     </div>
+
+     <div ng-show="myForm.gname.$error.maxlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"> Groupname cant be greater than 25 characters. </p>
+     </div>
+
+     </div>
+     </div>-->
+     </div>
+
+
+<input type="submit" class="btn-primary btn-lg" value="Sign up" style="margin-left:70px;margin-top:20px;"  ng-click="send(myForm.$valid)"></input>
+
+</div>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+
