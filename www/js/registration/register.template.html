@@ -15,15 +15,15 @@
 
 <div class="form-group has-feedback" ng-class="{ 'has-error': myForm.$invalid}" style="margin-top:20px;">
 
-Registered as a family Member?? <input type="checkbox" ng-model="checked">
+Registered as a family Member?? <input type="checkbox" ng-model="user.checked">
 
 
 <input type="text" class="form-control" name="firstname" placeholder="First name" style="background-color:#e0e0eb;" ng-model="user.firstname" required  ng-maxlength="20" ng-pattern="/^[a-zA-z]+$/"/>
 	
 <div ng-show="myForm.$submitted || myForm.firstname.$touched" style="margin-top:0px;padding-bottom:20px;padding-top:0px;">
-						<div ng-show="myForm.firstname.$error.required" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;"><p> please enter first name</p></div>
-						<div ng-show="myForm.firstname.$error.pattern" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;"><p> please enter valid first name</p></div>
-								<div ng-show="myForm.Mobileno.$error.maxlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"><p> first name must be less than 20.</p></div>
+						<div ng-show="myForm.firstname.$error.required" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;">please enter first name</p></div>
+						<div ng-show="myForm.firstname.$error.pattern" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;">please enter valid first name</p></div>
+								<div ng-show="myForm.Mobileno.$error.maxlength"><p class="text-danger" style="font-size:15px;font-weight:bold;">first name must be less than 20.</p></div>
 												
 												
 		</div>
@@ -53,9 +53,9 @@ Registered as a family Member?? <input type="checkbox" ng-model="checked">
 <div ng-show="myForm.firstname.$valid && myForm.lname.$valid">
 						<div ng-show="myForm.emailid.$error.required" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;"> please enter emailid</p></div>
 						
-						<div ng-show="myForm.Mobileno.$error.maxlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"><p>email id must be less than 50.</p></div>
+						<div ng-show="myForm.Mobileno.$error.maxlength"><p class="text-danger" style="font-size:15px;font-weight:bold;">email id must be less than 50.</p></div>
 
-							<div ng-show="myForm.emailid.$error.email"><p class="text-danger" style="font-size:15px;font-weight:bold;"> <p>enter valid email id</p></div>
+							<div ng-show="myForm.emailid.$error.email"><p class="text-danger" style="font-size:15px;font-weight:bold;">enter valid email id</p></div>
 
 												
 		</div>
@@ -69,9 +69,9 @@ Registered as a family Member?? <input type="checkbox" ng-model="checked">
 
 <div ng-show="myForm.firstname.$valid && myForm.lname.$valid && myForm.emailid.$valid">
 
-						<div ng-show="myForm.password.$error.required"><p class="text-danger" style="font-size:15px;font-weight:bold;"><p> please enter password</p></div>
+						<div ng-show="myForm.password.$error.required"><p class="text-danger" style="font-size:15px;font-weight:bold;"> please enter password</div>
 
-						<div ng-show="myForm.password.$error.minlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"> <p>password length is short.(minlenght=6)</p>
+						<div ng-show="myForm.password.$error.minlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"> password length is short.(minlenght=6)
 						</div>
 
 </div>
@@ -83,12 +83,12 @@ Registered as a family Member?? <input type="checkbox" ng-model="checked">
 
 
 
-<div ng-show="myForm.$submitted || myForm.repassword.$touched || myForm.password.$touched" style="margin-top:0px;">
+<div ng-show="myForm.$submitted || myForm.repassword.$touched" style="margin-top:0px;">
 
 <div ng-show="myForm.firstname.$valid && myForm.lname.$valid && myForm.emailid.$valid && myForm.password.$valid">
-						<div ng-show="myForm.repassword.$error.required"><p class="text-danger" style="font-size:15px;font-weight:bold;"> please re-enter password</div>
+						<div ng-show="myForm.repassword.$error.required"><p class="text-danger" style="font-size:15px;font-weight:bold;"> please re-enter password</p></div>
 
-						<div ng-show="myForm.repassword.$error.minlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"> password length is short.(minlenght=6)
+						<div ng-show="myForm.repassword.$error.minlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"> password length is short.(minlenght=6)</p>
 						</div>
 
 						<div ng-show="user.password!=user.repassword"><p class="text-danger" style="font-size:15px;font-weight:bold;"> passwords does not match
@@ -117,26 +117,25 @@ Registered as a family Member?? <input type="checkbox" ng-model="checked">
    
     
 
-<div class="check-element animate-show" ng-show="checked">
-<input type="text" name="groupname" ng-model="user.gname" placeholder="edit name" required ng-maxlength="25">
+<div class="check-element animate-show" ng-show="user.checked">
+<input type="text" name="groupname" ng-model="user.groupname" placeholder="edit name" ng-maxlength="25">
      </input>
 
+     <div ng-show="myForm.groupname.$touched" style="margin-top:0px;">
 
-    <!-- <div ng-show="myForm.groupname.$touched">
+<div ng-show="myForm.firstname.$valid && myForm.lname.$valid && myForm.emailid.$valid && myForm.password.$valid && myForm.repassword.$valid && myForm.username.$valid">
+          
+          <div ng-show="myForm.groupname.$error.maxlength" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;"> value must be less than 25</p></div>
+          
+                        
+    </div>
+</div>
 
-     <div ng-show="myForm.firstname.$valid && myForm.lname.$valid && myForm.emailid.$valid && myForm.password.$valid && myForm.repassword.$valid&& myForm.username.$valid">
-     <div ng-show="myForm.groupname.$error.required"><p class="text-danger" style="font-size:15px;font-weight:bold;"> the field is required </p>
-     </div>
+<input type="text" name="familyid" ng-model="user.familyid" placeholder="familyid" ng-maxlength="25">
+     </input>
 
-     <div ng-show="myForm.groupname.$error.maxlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"> Groupname cant be greater than 25 characters. </p>
-     </div>
-
-     </div>
- 
-        </div> -->
-
-
-	 <!-- <input type="text" class="form-control" name="familyid" placeholder="Family id" style="background-color:#e0e0eb;" ng-model="user.familyid" required> -->
+ </div>
+	 
 
 
 	  <!--   <div ng-show="myForm.familyid.$touched" style="margin-top:0px;">
@@ -150,30 +149,26 @@ Registered as a family Member?? <input type="checkbox" ng-model="checked">
 
 </div>-->
 
-</div>
 
- <div class="check-element animate-show" ng-hide="checked" >
+ <div class="check-element animate-show" ng-hide="user.checked" >
 
- <input type="text" name="gname" ng-model="user.groupname" placeholder="family group name" required>
+ <input type="text" name="gname" ng-model="user.groupname" placeholder="family group name" ng-maxlength = "25">
      </input> 
 
 
-   <!--  <div ng-show="myForm.gname.$touched">
+<div ng-show="myForm.firstname.$valid && myForm.lname.$valid && myForm.emailid.$valid && myForm.password.$valid && myForm.repassword.$valid && myForm.username.$valid">
+          
+          <div ng-show="myForm.gname.$error.maxlength" class="help-block"><p class="text-danger" style="font-size:15px;font-weight:bold;"> value must be less than 25</p></div>
+          
+                        
+    </div>
 
-     <div ng-show="myForm.firstname.$valid && myForm.lname.$valid && myForm.emailid.$valid && myForm.password.$valid && myForm.repassword.$valid&& myForm.username.$valid">
-     <div ng-show="myForm.gname.$error.required"><p class="text-danger" style="font-size:15px;font-weight:bold;"> the field is required </p>
-     </div>
-
-     <div ng-show="myForm.gname.$error.maxlength"><p class="text-danger" style="font-size:15px;font-weight:bold;"> Groupname cant be greater than 25 characters. </p>
-     </div>
-
-     </div>
-     </div>-->
-     </div>
+</div>
 
 
-<input type="submit" class="btn-primary btn-lg" value="Sign up" style="margin-left:70px;margin-top:20px;"  ng-click="send(myForm.$valid)"></input>
+<p class="text-danger" style="font-size:15px;font-weight:bold;"> {{err}}</p>
 
+<input type="submit" class="btn-primary btn-lg" value="Sign up" style="margin-left:70px;margin-top:20px;"  ng-click="myForm.$valid &&check() && send()"></input>
 </div>
 </form>
 </div>
