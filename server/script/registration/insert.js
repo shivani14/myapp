@@ -1,5 +1,6 @@
 
 var express = require('express');
+var sha1 = require('sha1');
 var bodyparser = require('body-parser');
 
 var random = require("random-js")();
@@ -51,7 +52,8 @@ myapp.post("/",function(req,res)
 	var last_name = data.lastname;
 	var emailid = data.emailid;
 	var mobno = data.mobileno;
-	var password = data.password;
+	var password = sha1(data.password);
+
 	var groupName = data.groupname;
 	if(data.checked == true)
 	{
@@ -116,6 +118,7 @@ myapp.post("/",function(req,res)
 				member_model1.group_id = data._id;
 				member_model1.save();
 				res.send(true);
+				console.log(member_model1);
 			}
 	});
 
