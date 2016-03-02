@@ -1,4 +1,4 @@
-angular.module('FamilyPlusApp').controller('registerController',['$scope','$http','$httpParamSerializer','$window','$location',function($scope,$http, $httpParamSerializer,$window,$location)
+angular.module('FamilyPlusApp').controller('registerController',['$scope',function($scope)
 {
 
 	$scope.checked=false;
@@ -7,56 +7,21 @@ angular.module('FamilyPlusApp').controller('registerController',['$scope','$http
 
 	$scope.check = function()
 	{
-		if($scope.checked == false && $scope.user.groupname == undefined || $scope.user.groupname == "")
+		if($scope.user.groupname==undefined)
 		{
-			$scope.err ="field is required";
-			console.log("--mydata--",$scope.err);
-			return false;
-		}
-		else if($scope.checked==true && $scope.user.groupname == undefined || $scope.user.groupname == "")
-		{
-			$scope.err ="field is required";
-			console.log("--mydata--",$scope.err);
-			return false;
-		}
-		else if($scope.checked==true && $scope.user.familyid == undefined || $scope.user.familyid == "")
-		{
-			$scope.err ="field is required";
-			console.log("--mydata--",$scope.err);
+			$scope.err = "field is required";
+			console.log("--data-",false);
 			return false;
 		}
 		else
 		{
-			$scope.err ="";
+			$scope.err = "";
 			return true;
 		}
-
 	}
-
-
-	$scope.send = function()
+	$scope.send = function(value)
 	{
-		$http({
-			method :'post',
-			url : 'http://localhost:3001/',
-			data :  $httpParamSerializer($scope.user),
-			headers :{'Content-Type': 'application/x-www-form-urlencoded','Access-Control-Allow-Origin':'*'} 
-
-		}).success(function(data)
-		{
-			if(data.error)
-			{
-
-			}
-			else
-			{
-				if(data == true)
-				{	
-					$scope.user ={};
-					$window.location.href =	"http://localhost:8100/#/login";
-				}
-			}
-		});
+		$scope.value1 = value;
+		console.log("--data--",$scope.value1 + "hii");
 	}
-	
 }]);
